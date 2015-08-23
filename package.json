@@ -37,6 +37,6 @@
     "cu-events": "^0.1.0"
   },
   "typescript": {
-    "definition": "./lib/cu-events.d.ts"
+    "definition": "./lib/cu-stores.d.ts"
   }
 }
