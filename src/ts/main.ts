@@ -9,7 +9,7 @@ import CharacterStore from './classes/CharacterStore';
 import EnemyTargetStore from './classes/EnemyTargetStore';
 import FriendlyTargetStore from './classes/FriendlyTargetStore';
 
-export default {
+export {
     CharacterStore,
     EnemyTargetStore,
     FriendlyTargetStore
