@@ -11,7 +11,7 @@ const EnemyTargetStore = {
 	create() {
 		return Reflux.createStore({
 		    mixins: [ _UnitFrame ],
-		    handles: events.handlesEnemyTarget
+		    handles: events.handlesEnemyTarget.action
 		});
 	}
 }

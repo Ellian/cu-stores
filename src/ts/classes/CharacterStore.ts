@@ -11,7 +11,7 @@ const CharacterStore = {
 	create() {
 		return Reflux.createStore({
 		    mixins: [ _UnitFrame ],
-		    handles: events.handlesCharacter
+		    handles: events.handlesCharacter.action
 		});
 	}
 }
