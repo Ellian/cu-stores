@@ -22,8 +22,7 @@ const _UnitFrame = {
         // can use the Store to initialise their state in getDefaultState().
         store.info = {
             name: '', 
-            race: '', 
-            raceId: -1, 
+            race: -1, 
             health: 0, 
             maxHealth: 100, 
             stamina: 0, 
@@ -37,7 +36,6 @@ const _UnitFrame = {
             store.info = {
                 name: unitFrame.name,
                 race: unitFrame.race,
-                raceId: unitFrame.raceId,
                 health: unitFrame.health,
                 maxHealth: unitFrame.maxHealth,
                 stamina: unitFrame.stamina,
