@@ -5,10 +5,18 @@
  */
 import events from 'cu-events';
 
+
 const _UnitFrame = {
+
+    started: false,
 
     start() {
         const store = this;
+
+        // If this store has already been started, then ingore subsequent start 
+        // request
+        if (this.started) return;
+        this.started = true;
 
         // Initialise the store is basic info.  This is so that React components
         // can use the Store to initialise their state in getDefaultState().
@@ -48,7 +56,7 @@ const _UnitFrame = {
     // has initialised.
     init() {
         const store = this;
-        events.on('init', function() {
+        events.on('init', () => {
             store.start();
         });
     }
