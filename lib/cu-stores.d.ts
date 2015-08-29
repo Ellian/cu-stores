@@ -6,10 +6,18 @@ declare module 'cu-stores' {
       * License, v. 2.0. If a copy of the MPL was not distributed with this
       * file, You can obtain one at http://mozilla.org/MPL/2.0/.
       */
+    import AnnouncementsStore from '__cu-stores/classes/AnnouncementsStore';
     import CharacterStore from '__cu-stores/classes/CharacterStore';
     import EnemyTargetStore from '__cu-stores/classes/EnemyTargetStore';
     import FriendlyTargetStore from '__cu-stores/classes/FriendlyTargetStore';
-    export { CharacterStore, EnemyTargetStore, FriendlyTargetStore };
+    export { AnnouncementsStore, CharacterStore, EnemyTargetStore, FriendlyTargetStore };
+}
+
+declare module '__cu-stores/classes/AnnouncementsStore' {
+    const AnnouncementsStore: {
+        create(): any;
+    };
+    export default AnnouncementsStore;
 }
 
 declare module '__cu-stores/classes/CharacterStore' {

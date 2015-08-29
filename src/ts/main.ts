@@ -5,11 +5,13 @@
  */
 /// <reference path="../definitions/tsd.d.ts" />
 
+import AnnouncementsStore from './classes/AnnouncementsStore';
 import CharacterStore from './classes/CharacterStore';
 import EnemyTargetStore from './classes/EnemyTargetStore';
 import FriendlyTargetStore from './classes/FriendlyTargetStore';
 
 export {
+    AnnouncementsStore,
     CharacterStore,
     EnemyTargetStore,
     FriendlyTargetStore
