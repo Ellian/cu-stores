@@ -9,10 +9,14 @@ import AnnouncementsStore from './classes/AnnouncementsStore';
 import CharacterStore from './classes/CharacterStore';
 import EnemyTargetStore from './classes/EnemyTargetStore';
 import FriendlyTargetStore from './classes/FriendlyTargetStore';
+import ControlGameStore from './classes/ControlGameStore';
+import ControlGameScoreStore from './classes/ControlGameScoreStore';
 
 export {
     AnnouncementsStore,
     CharacterStore,
     EnemyTargetStore,
-    FriendlyTargetStore
+    FriendlyTargetStore,
+    ControlGameStore,
+    ControlGameScoreStore
 }
