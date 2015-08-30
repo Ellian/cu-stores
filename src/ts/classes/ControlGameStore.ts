@@ -10,8 +10,8 @@ const ControlGameStore = {
 	create() {
 		return Reflux.createStore({
 		    handles: events.handlesControlGame,
-		    listenables: [ events.handlesControlGame.action ],
 		    start() {
+				console.log("ControlGameStore: start()");
 		        const store = this;
 
 		        // If this store has already been started, then ingore subsequent start 
@@ -34,6 +34,15 @@ const ControlGameStore = {
 		            // Trigger changed notification for this store
 		            store.trigger(store.info);
 		        });
+		    },
+		    stop() {
+				console.log("ControlGameStore: stop()");
+				// TODO
+		    },
+		    init() {
+		    	// FIXME: Reflux actions are broken, these don't work
+				this.listenTo(this.handles.action.start, this.start);
+				this.listenTo(this.handles.action.stop, this.stop);
 		    }
 		});
 	}

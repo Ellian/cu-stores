@@ -10,8 +10,8 @@ const ControlGameScoreStore = {
 	create() {
 		return Reflux.createStore({
 		    handles: events.handlesControlGameScore,
-		    listenables: [ events.handlesControlGameScore.action ],
 		    start() {
+				console.log("ControlGameScoreStore: start()");
 		        const store = this;
 
 		        // If this store has already been started, then ingore subsequent start 
@@ -34,6 +34,15 @@ const ControlGameScoreStore = {
 		            // Trigger changed notification for this store
 		            store.trigger(store.info);
 		        });
+		    },
+		    stop() {
+				console.log("ControlGameScoreStore: stop()");
+				// TODO
+		    },
+		    init() {
+		    	// FIXME: Reflux actions are broken, these never fire
+				this.listenTo(this.handles.action.start, this.start);
+				this.listenTo(this.handles.action.stop, this.stop);
 		    }
 		});
 	}

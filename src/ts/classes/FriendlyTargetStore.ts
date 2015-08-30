@@ -11,8 +11,7 @@ const FriendlyTargetStore = {
 	create() {
 		return Reflux.createStore({
 		    mixins: [ _UnitFrame ],
-		    handles: events.handlesFriendlyTarget,
-		    listenables: [ events.handlesFriendlyTarget.action ]
+		    handles: events.handlesFriendlyTarget
 		});
 	}
 }

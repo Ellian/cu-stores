@@ -47,12 +47,16 @@ const _UnitFrame = {
         });
     },
 
-    // FIXME: Due to the way the client handles sending initial data in response
-    // to subscribing to an event, where there is a limited time after OnInit
-    // within which we must register our listeners if we want to get initial data
-    // (50ms was too long a delay) we need to start our store as soon as the API
-    // has initialised.
     init() {
+        // Listen for the start action
+        // FIXME: Reflux actions are not working
+        this.listenTo(this.handles.action.start, this.start);
+
+        // FIXME: Due to the way the client handles sending initial data in response
+        // to subscribing to an event, where there is a limited time after OnInit
+        // within which we must register our listeners if we want to get initial data
+        // (50ms was too long a delay) we need to start our store as soon as the API
+        // has initialised.
         const store = this;
         events.on('init', () => {
             store.start();

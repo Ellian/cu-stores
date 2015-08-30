@@ -10,7 +10,6 @@ const AnnouncementsStore = {
 	create() {
 		return Reflux.createStore({
 		    handles: events.handlesAnnouncements,
-		    listenables: [ events.handlesAnnouncements.action ],
 		    start() {
 		        const store = this;
 
@@ -38,6 +37,10 @@ const AnnouncementsStore = {
 		            // Trigger changed notification for this store
 		            store.trigger(store.info);
 		        });
+		    },
+		    init() {
+		    	// FIXME: Reflux actions are broken!!
+				this.listenTo(this.handles.action.start, this.start);
 		    }
 		});
 	}
