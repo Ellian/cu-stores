@@ -30,7 +30,7 @@ const AnnouncementsStore = {
 
 		            // Update store info
 		            store.info = {
-		                message: announcement.name,
+		                message: announcement.message,
 		                type: announcement.type
 		            };
 
