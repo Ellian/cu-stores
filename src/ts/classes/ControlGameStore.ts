@@ -6,46 +6,38 @@
 import * as Reflux from 'reflux';
 import events from 'cu-events';
 
-const ControlGameStore = {
-	create() {
-		return Reflux.createStore({
-		    handles: events.handlesControlGame,
-		    start() {
-				console.log("ControlGameStore: start()");
-		        const store = this;
+const ControlGameStore = Reflux.createStore({
+    handles: events.handlesControlGame,
+    listenables: events.handlesControlGame.action,
+    start() {
+		console.log("ControlGameStore: start()");
+        const store = this;
 
-		        // If this store has already been started, then ingore subsequent start 
-		        // request
-		        if (this.started) return;
-		        this.started = true;
+        // If this store has already been started, then ingore subsequent start 
+        // request
+        if (this.started) return;
+        this.started = true;
 
-		        // Initialise the store is basic info.  This is so that React components
-		        // can use the Store to initialise their state in getDefaultState().
-		        store.info = {
+        // Initialise the store is basic info.  This is so that React components
+        // can use the Store to initialise their state in getDefaultState().
+        store.info = {
 
-		        };
+        };
 
-		        // Listen to the event group for this unit frame
-		        events.on(this.handles.name, (controlGame : any) => {
+        // Listen to the event group for this unit frame
+        events.on(this.handles.name, (controlGame : any) => {
 
-		            // Update store info
-					store.info = controlGame;
+            // Update store info
+			store.info = controlGame;
 
-		            // Trigger changed notification for this store
-		            store.trigger(store.info);
-		        });
-		    },
-		    stop() {
-				console.log("ControlGameStore: stop()");
-				// TODO
-		    },
-		    init() {
-		    	// FIXME: Reflux actions are broken, these don't work
-				this.listenTo(this.handles.action.start, this.start);
-				this.listenTo(this.handles.action.stop, this.stop);
-		    }
-		});
-	}
-}
+            // Trigger changed notification for this store
+            store.trigger(store.info);
+        });
+    },
+    stop() {
+		console.log("ControlGameStore: stop()");
+		// TODO
+    }
+});
 
 export default ControlGameStore;

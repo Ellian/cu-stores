@@ -7,13 +7,10 @@ import * as Reflux from 'reflux';
 import events from 'cu-events';
 import _UnitFrame from './_UnitFrame';
 
-const CharacterStore = {
-	create() {
-		return Reflux.createStore({
-		    mixins: [ _UnitFrame ],
-		    handles: events.handlesCharacter
-		});
-	}
-}
+const CharacterStore = Reflux.createStore({
+    mixins: [ _UnitFrame ],
+    handles: events.handlesCharacter,
+    listenables: events.handlesCharacter.action
+});
 
 export default CharacterStore;

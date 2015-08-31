@@ -21,37 +21,27 @@ declare module '__cu-stores/classes/AnnouncementsStore' {
 }
 
 declare module '__cu-stores/classes/CharacterStore' {
-    const CharacterStore: {
-        create(): any;
-    };
+    const CharacterStore: any;
     export default CharacterStore;
 }
 
 declare module '__cu-stores/classes/EnemyTargetStore' {
-    const EnemyTargetStore: {
-        create(): any;
-    };
+    const EnemyTargetStore: any;
     export default EnemyTargetStore;
 }
 
 declare module '__cu-stores/classes/FriendlyTargetStore' {
-    const FriendlyTargetStore: {
-        create(): any;
-    };
+    const FriendlyTargetStore: any;
     export default FriendlyTargetStore;
 }
 
 declare module '__cu-stores/classes/ControlGameStore' {
-    const ControlGameStore: {
-        create(): any;
-    };
+    const ControlGameStore: any;
     export default ControlGameStore;
 }
 
 declare module '__cu-stores/classes/ControlGameScoreStore' {
-    const ControlGameScoreStore: {
-        create(): any;
-    };
+    const ControlGameScoreStore: any;
     export default ControlGameScoreStore;
 }
 

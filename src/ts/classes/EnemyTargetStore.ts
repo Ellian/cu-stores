@@ -7,13 +7,10 @@ import * as Reflux from 'reflux';
 import events from 'cu-events';
 import _UnitFrame from './_UnitFrame';
 
-const EnemyTargetStore = {
-	create() {
-		return Reflux.createStore({
-		    mixins: [ _UnitFrame ],
-		    handles: events.handlesEnemyTarget
-		});
-	}
-}
+const EnemyTargetStore = Reflux.createStore({
+    mixins: [ _UnitFrame ],
+    handles: events.handlesEnemyTarget,
+    listenables: events.handlesEnemyTarget.action
+});
 
 export default EnemyTargetStore;
