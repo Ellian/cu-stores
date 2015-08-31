@@ -16,9 +16,7 @@ declare module 'cu-stores' {
 }
 
 declare module '__cu-stores/classes/AnnouncementsStore' {
-    const AnnouncementsStore: {
-        create(): any;
-    };
+    const AnnouncementsStore: any;
     export default AnnouncementsStore;
 }
 

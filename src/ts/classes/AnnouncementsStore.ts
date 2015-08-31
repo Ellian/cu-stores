@@ -6,44 +6,38 @@
 import * as Reflux from 'reflux';
 import events from 'cu-events';
 
-const AnnouncementsStore = {
-	create() {
-		return Reflux.createStore({
-		    handles: events.handlesAnnouncements,
-		    start() {
-		        const store = this;
+const AnnouncementsStore = Reflux.createStore({
+    handles: events.handlesAnnouncements,
+    listenables: events.handlesAnnouncements.action,
+    start() {
+		console.log('in AnnouncementStore:start()');
+        const store = this;
 
-		        // If this store has already been started, then ingore subsequent start 
-		        // request
-		        if (this.started) return;
-		        this.started = true;
+        // If this store has already been started, then ingore subsequent start 
+        // request
+        if (this.started) return;
+        this.started = true;
 
-		        // Initialise the store is basic info.  This is so that React components
-		        // can use the Store to initialise their state in getDefaultState().
-		        store.info = {
-		        	message: "",
-		        	type: -1
-		        };
+        // Initialise the store is basic info.  This is so that React components
+        // can use the Store to initialise their state in getDefaultState().
+        store.info = {
+        	message: "",
+        	type: -1
+        };
 
-		        // Listen to the event group for this unit frame
-		        events.on(this.handles.name, (announcement : any) => {
+        // Listen to the event group for this unit frame
+        events.on(this.handles.name, (announcement : any) => {
 
-		            // Update store info
-		            store.info = {
-		                message: announcement.message,
-		                type: announcement.type
-		            };
+            // Update store info
+            store.info = {
+                message: announcement.message,
+                type: announcement.type
+            };
 
-		            // Trigger changed notification for this store
-		            store.trigger(store.info);
-		        });
-		    },
-		    init() {
-		    	// FIXME: Reflux actions are broken!!
-				this.listenTo(this.handles.action.start, this.start);
-		    }
-		});
-	}
-}
+            // Trigger changed notification for this store
+            store.trigger(store.info);
+        });
+    }
+});
 
 export default AnnouncementsStore;
