@@ -16,32 +16,62 @@ declare module 'cu-stores' {
 }
 
 declare module '__cu-stores/classes/AnnouncementsStore' {
-    const AnnouncementsStore: any;
+    const AnnouncementsStore: {
+        create(): {
+            store: any;
+            actions: any;
+        };
+    };
     export default AnnouncementsStore;
 }
 
 declare module '__cu-stores/classes/CharacterStore' {
-    const CharacterStore: any;
+    const CharacterStore: {
+        create(): {
+            store: any;
+            actions: any;
+        };
+    };
     export default CharacterStore;
 }
 
 declare module '__cu-stores/classes/EnemyTargetStore' {
-    const EnemyTargetStore: any;
+    const EnemyTargetStore: {
+        create(): {
+            store: any;
+            actions: any;
+        };
+    };
     export default EnemyTargetStore;
 }
 
 declare module '__cu-stores/classes/FriendlyTargetStore' {
-    const FriendlyTargetStore: any;
+    const FriendlyTargetStore: {
+        create(): {
+            store: any;
+            actions: any;
+        };
+    };
     export default FriendlyTargetStore;
 }
 
 declare module '__cu-stores/classes/ControlGameStore' {
-    const ControlGameStore: any;
+    const ControlGameStore: {
+        create(): {
+            store: any;
+            actions: any;
+        };
+    };
     export default ControlGameStore;
 }
 
 declare module '__cu-stores/classes/ControlGameScoreStore' {
-    const ControlGameScoreStore: any;
+    const ControlGameScoreStore: {
+        create(): {
+            store: any;
+            actions: any;
+        };
+    };
     export default ControlGameScoreStore;
 }
 

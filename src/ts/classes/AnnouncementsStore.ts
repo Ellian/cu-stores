@@ -6,38 +6,51 @@
 import * as Reflux from 'reflux';
 import events from 'cu-events';
 
-const AnnouncementsStore = Reflux.createStore({
-    handles: events.handlesAnnouncements,
-    listenables: events.handlesAnnouncements.action,
-    start() {
-		console.log('in AnnouncementStore:start()');
-        const store = this;
+const AnnouncementsStore = {
+    create() {
+        const actions = Reflux.createActions(['start','stop']);
+        const store = Reflux.createStore({
+            handles: events.handlesAnnouncements,
+            listenables: actions,
+            init() {
+                // Initialise the store is basic info.  This is so that React components
+                // can use the Store to initialise their state in getDefaultState().
+                this.info = {
+                    message: "",
+                    type: -1
+                };
+            },
+            start() {
+                console.log('in AnnouncementStore:start()');
+                const store = this;
 
-        // If this store has already been started, then ingore subsequent start 
-        // request
-        if (this.started) return;
-        this.started = true;
+                // If this store has already been started, then ingore subsequent start 
+                // request
+                if (this.started) return;
+                this.started = true;
 
-        // Initialise the store is basic info.  This is so that React components
-        // can use the Store to initialise their state in getDefaultState().
-        store.info = {
-        	message: "",
-        	type: -1
-        };
+                // Listen to the event group for this unit frame
+                events.on(this.handles.name, (announcement: any) => {
 
-        // Listen to the event group for this unit frame
-        events.on(this.handles.name, (announcement : any) => {
+                    // Update store info
+                    store.info = {
+                        message: announcement.message,
+                        type: announcement.type
+                    };
 
-            // Update store info
-            store.info = {
-                message: announcement.message,
-                type: announcement.type
-            };
-
-            // Trigger changed notification for this store
-            store.trigger(store.info);
+                    // Trigger changed notification for this store
+                    store.trigger(store.info);
+                });
+            },
+            stop() {
+                // TODO
+            }
         });
-    }
-});
 
+        return {
+            store: store, 
+            actions: actions 
+        };
+    }
+};
 export default AnnouncementsStore;

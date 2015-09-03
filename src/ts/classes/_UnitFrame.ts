@@ -7,17 +7,10 @@ import events from 'cu-events';
 
 const _UnitFrame = {
     started: false,
-    start() {
-        const store = this;
-
-        // If this store has already been started, then ingore subsequent start 
-        // request
-        if (this.started) return;
-        this.started = true;
-
+    init() {
         // Initialise the store is basic info.  This is so that React components
         // can use the Store to initialise their state in getDefaultState().
-        store.info = {
+        this.info = {
             name: '', 
             race: -1, 
             health: 0, 
@@ -25,6 +18,14 @@ const _UnitFrame = {
             stamina: 0, 
             maxStamina: 100
         };
+    },
+    start() {
+        const store = this;
+
+        // If this store has already been started, then ingore subsequent start 
+        // request
+        if (this.started) return;
+        this.started = true;
 
         // Listen to the event group for this unit frame
         events.on(this.handles.name, (unitFrame : any) => {
@@ -42,6 +43,9 @@ const _UnitFrame = {
             // Trigger changed notification for this store
             store.trigger(store.info);
         });
+    },
+    stop() {
+        // TODO()
     }
 };
 
