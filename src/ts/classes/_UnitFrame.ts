@@ -4,20 +4,14 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import events from 'cu-events';
+import { Combatant } from 'cu-core';
 
 const _UnitFrame = {
     started: false,
     init() {
         // Initialise the store is basic info.  This is so that React components
         // can use the Store to initialise their state in getDefaultState().
-        this.info = {
-            name: '', 
-            race: -1, 
-            health: 0, 
-            maxHealth: 100, 
-            stamina: 0, 
-            maxStamina: 100
-        };
+        this.info = new Combatant(<Combatant>{});
     },
     start() {
         const store = this;
@@ -28,17 +22,10 @@ const _UnitFrame = {
         this.started = true;
 
         // Listen to the event group for this unit frame
-        events.on(this.handles.name, (unitFrame : any) => {
+        events.on(this.handles.name, (instance : Combatant) => {
 
             // Update store info
-            store.info = {
-                name: unitFrame.name,
-                race: unitFrame.race,
-                health: unitFrame.health,
-                maxHealth: unitFrame.maxHealth,
-                stamina: unitFrame.stamina,
-                maxStamina: unitFrame.maxStamina
-            };
+            store.info = instance;
 
             // Trigger changed notification for this store
             store.trigger(store.info);
