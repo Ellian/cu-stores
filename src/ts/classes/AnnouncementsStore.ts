@@ -30,7 +30,7 @@ const AnnouncementsStore = {
                 this.started = true;
 
                 // Listen to the event group for this unit frame
-                events.on(this.handles.name, (announcement: any) => {
+                events.on(this.handles.topic, (announcement: any) => {
 
                     // Update store info
                     store.info = {

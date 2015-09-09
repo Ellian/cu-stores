@@ -29,7 +29,7 @@ const ControlGameStore = {
 
 
                 // Listen to the event group for this unit frame
-                events.on(this.handles.name, (controlGame : any) => {
+                events.on(this.handles.topic, (controlGame: any) => {
 
                     // Update store info
         			store.info = controlGame;
