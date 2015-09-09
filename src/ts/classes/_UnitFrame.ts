@@ -22,7 +22,7 @@ const _UnitFrame = {
         this.started = true;
 
         // Listen to the event group for this unit frame
-        events.on(this.handles.name, (instance : Combatant) => {
+        events.on(this.handles.topic, (instance: Combatant) => {
 
             // Update store info
             store.info = instance;

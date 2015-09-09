@@ -28,7 +28,7 @@ const ControlGameScoreStore = {
                 this.started = true;
 
                 // Listen to the event group for this unit frame
-                events.on(this.handles.name, (controlGameScore : any) => {
+                events.on(this.handles.topic, (controlGameScore: any) => {
 
                     // Update store info
         			store.info = controlGameScore;
