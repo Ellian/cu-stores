@@ -3,7 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-/// <reference path="../definitions/tsd.d.ts" />
+/// <reference path="../tsd/tsd.d.ts" />
 
 import AnnouncementsStore from './classes/AnnouncementsStore';
 import CharacterStore from './classes/CharacterStore';
@@ -13,10 +13,10 @@ import ControlGameStore from './classes/ControlGameStore';
 import ControlGameScoreStore from './classes/ControlGameScoreStore';
 
 export {
-    AnnouncementsStore,
-    CharacterStore,
-    EnemyTargetStore,
-    FriendlyTargetStore,
-    ControlGameStore,
-    ControlGameScoreStore
+  AnnouncementsStore,
+  CharacterStore,
+  EnemyTargetStore,
+  FriendlyTargetStore,
+  ControlGameStore,
+  ControlGameScoreStore
 }
