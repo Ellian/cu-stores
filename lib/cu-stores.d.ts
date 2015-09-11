@@ -19,7 +19,7 @@ declare module '__cu-stores/classes/AnnouncementsStore' {
     const AnnouncementsStore: {
         create(): {
             store: any;
-            actions: any;
+            actions: {};
         };
     };
     export default AnnouncementsStore;
@@ -29,7 +29,7 @@ declare module '__cu-stores/classes/CharacterStore' {
     const CharacterStore: {
         create(): {
             store: any;
-            actions: any;
+            actions: {};
         };
     };
     export default CharacterStore;
@@ -39,7 +39,7 @@ declare module '__cu-stores/classes/EnemyTargetStore' {
     const EnemyTargetStore: {
         create(): {
             store: any;
-            actions: any;
+            actions: {};
         };
     };
     export default EnemyTargetStore;
@@ -49,7 +49,7 @@ declare module '__cu-stores/classes/FriendlyTargetStore' {
     const FriendlyTargetStore: {
         create(): {
             store: any;
-            actions: any;
+            actions: {};
         };
     };
     export default FriendlyTargetStore;
@@ -59,7 +59,7 @@ declare module '__cu-stores/classes/ControlGameStore' {
     const ControlGameStore: {
         create(): {
             store: any;
-            actions: any;
+            actions: {};
         };
     };
     export default ControlGameStore;
@@ -69,7 +69,7 @@ declare module '__cu-stores/classes/ControlGameScoreStore' {
     const ControlGameScoreStore: {
         create(): {
             store: any;
-            actions: any;
+            actions: {};
         };
     };
     export default ControlGameScoreStore;

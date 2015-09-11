@@ -1,12 +1,41 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "noImplicitAny": true,
-    "removeComments": false,
-    "preserveConstEnums": true,
-    "outDir": "./lib",
-    "sourceMap": false,
-    "definition": true,
-    "jsx": "react"
-  }
+    "compilerOptions": {
+        "target": "es6",
+        "noImplicitAny": true,
+        "removeComments": false,
+        "outDir": "./tmp",
+        "sourceMap": false,
+        "jsx": "react"
+    },
+    "formatCodeOptions": {
+        "indentSize": 2,
+        "tabSize": 2,
+        "newLineCharacter": "\r\n",
+        "convertTabsToSpaces": true,
+        "insertSpaceAfterCommaDelimiter": true,
+        "insertSpaceAfterSemicolonInForStatements": true,
+        "insertSpaceBeforeAndAfterBinaryOperators": true,
+        "insertSpaceAfterKeywordsInControlFlowStatements": true,
+        "insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+        "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+        "placeOpenBraceOnNewLineForFunctions": false,
+        "placeOpenBraceOnNewLineForControlBlocks": false
+    },
+    "compileOnSave": false,
+    "buildOnSave": false,
+    "filesGlob": [
+        "./src/**/*.ts",
+        "./src/**/*.tsx"
+    ],
+    "files": [
+        "./src/ts/classes/AnnouncementsStore.ts",
+        "./src/ts/classes/CharacterStore.ts",
+        "./src/ts/classes/ControlGameScoreStore.ts",
+        "./src/ts/classes/ControlGameStore.ts",
+        "./src/ts/classes/EnemyTargetStore.ts",
+        "./src/ts/classes/FriendlyTargetStore.ts",
+        "./src/ts/classes/_UnitFrame.ts",
+        "./src/ts/main.ts",
+        "./src/tsd/tsd.d.ts"
+    ]
 }
