@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "cu-core": "^0.1.3",
-    "cu-events": "git+https://github.com/CUModSquad/cu-events.git#master",
+    "cu-events": "^0.1.4",
     "reflux": "^0.2.12",
     "reflux-tsd": "git+https://github.com/saddieeiddas/reflux-tsd.git"
   },
