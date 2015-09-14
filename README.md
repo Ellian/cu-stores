@@ -7,5 +7,5 @@ cu-stores
 
 ### Installation
 
-> npm install git+https://github.com/Mehuge/cu-stores.git#master
+> npm install cu-stores
 
